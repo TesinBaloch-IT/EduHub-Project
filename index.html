@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduHub - Smart Study & Focus App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- App Container Card -->
+    <div id="app-card" class="app-card">
+        
+        <!-- Top Header -->
+        <div class="header-section">
+            <div class="brand-area">
+                <span class="dot"></span>
+                <span class="brand-title">EduHub Focus</span>
+            </div>
+            <button onclick="toggleTheme()" id="theme-btn" class="theme-toggle-btn" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- Active Task Banner -->
+        <div class="active-banner">
+            <div class="banner-left">
+                <div class="banner-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <div>
+                    <p class="banner-subtitle">Currently Focusing On</p>
+                    <p id="active-task-title" class="banner-title-text">Focus Study for DSA</p>
+                </div>
+            </div>
+            <span id="session-count" class="session-badge">0 Sessions</span>
+        </div>
+
+        <!-- Mode Selector Pills -->
+        <div class="mode-selector">
+            <button onclick="setMode(25, this)" class="mode-btn active-mode">Focus (25m)</button>
+            <button onclick="setMode(5, this)" class="mode-btn">Short Break (5m)</button>
+            <button onclick="setMode(15, this)" class="mode-btn">Long Break (15m)</button>
+        </div>
+
+        <!-- Circular Timer Display -->
+        <div class="timer-container">
+            <div id="timer-ring" class="timer-circle">
+                <div class="timer-inner">
+                    <span id="timer-display" class="timer-digits">25:00</span>
+                    <p id="timer-status" class="timer-state-text">Ready to start</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls (Play / Pause / Reset) -->
+        <div class="controls-area">
+            <button onclick="toggleTimer()" id="play-btn" class="play-btn" title="Start / Pause">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button onclick="resetTimer()" class="reset-btn" title="Reset Timer">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+
+        <!-- Task Checklist Section -->
+        <div class="tasks-section">
+            <div class="tasks-header">
+                <h4 id="tasks-heading" class="tasks-heading-text">Study Tasks</h4>
+                <button onclick="addTask()" class="add-task-btn">
+                    <i class="fa-solid fa-plus"></i> Add Task
+                </button>
+            </div>
+            
+            <ul id="task-list" class="task-list">
+                <!-- JavaScript se tasks load honge -->
+            </ul>
+        </div>
+
+        <!-- Quick Notes / Scratchpad Section (New for Competition Value!) -->
+        <div class="notes-section">
+            <h4 id="notes-heading" class="tasks-heading-text" style="margin-bottom: 6px;">Quick Study Notes</h4>
+            <textarea id="quick-notes" placeholder="Write formulas, reminders or key concepts here..." oninput="saveNotes()"></textarea>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
